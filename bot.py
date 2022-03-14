@@ -5,7 +5,6 @@ from urllib.error import HTTPError
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors import BadRequest
-from ff import ffprobe
 
 # Configs
 API_HASH = os.environ['API_HASH'] # Api hash
@@ -345,7 +344,6 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         os.remove(filename)
         shutil.rmtree(dirs)
     elif cb_data == '1by1':
-        video = ['.mp4','.mkv','.avi','.webm','.wmv','.mov']
         dldirs = [i async for i in absolute_paths(dirs)]
         rm, total, up = len(dldirs), len(dldirs), 0
         await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
@@ -353,16 +351,12 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
             start_time = time.time()
             await update.reply_video(
                 files,
-                height=height,
-                width=width,
-                duration=duration,
                 progress=progress_for_pyrogram,
                 progress_args=(
                     'Uploading...',
                     pablo,
                     start_time
                 )
-                
             )
             up+=1
             rm-=1
