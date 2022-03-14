@@ -376,10 +376,10 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
             start_time = time.time()
             await update.reply_video(
                 video,
-                supports_streaming= True,
+                supports_streaming=True,
                 caption= 'Upload by @ccgnimex_bot',
                 height= 720,
-                width= 1280,
+                width= 1280, 
                 progress=progress_for_pyrogram,
                 progress_args=(
                     'Uploading...',
