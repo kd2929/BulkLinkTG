@@ -380,7 +380,6 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
                 caption= 'Upload by @ccgnimex_bot',
                 height= 720,
                 width= 1280,
-                duration= duration, 
                 progress=progress_for_pyrogram,
                 progress_args=(
                     'Uploading...',
