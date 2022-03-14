@@ -376,6 +376,7 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
             start_time = time.time()
             await update.reply_video(
                 video,
+                supports_streaming=True,
                 progress=progress_for_pyrogram,
                 progress_args=(
                     'Uploading...',
