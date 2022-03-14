@@ -378,8 +378,9 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
                 video,
                 supports_streaming=True,
                 caption= 'Upload by @ccgnimex_bot',
-                height= 720,
-                width= 1280, 
+                width = 0,
+                height = 0,
+                duration = 0,
                 progress=progress_for_pyrogram,
                 progress_args=(
                     'Uploading...',
