@@ -372,7 +372,7 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         dldirs = [i async for i in absolute_paths(dirs)]
         rm, total, up = len(dldirs), len(dldirs), 0
         await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
-        for video in dldirs:
+        for document in dldirs:
             start_time = time.time()
             await update.reply_video(
                 video,
@@ -387,14 +387,6 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
                     start_time
                 )
             )
-            thumb_image_path = await take_screen_shot(
-                            media_location,
-                            os.path.dirname(media_location),
-                            random.randint(
-                                0,
-                                duration - 1
-                            )
-                        )
             
             up+=1
             rm-=1
