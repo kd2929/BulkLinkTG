@@ -313,6 +313,25 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
                 except BadRequest:
                     pass
         os.remove(fl)
+    if update.video:
+        output_filename = update.document.file_name[:-4]
+        filename = f'./{output_filename}'
+        pablo = await update.reply_text('Downloading...')
+        fl = await update.download()
+        with open(fl) as f:
+            urls = f.read()
+            urlx = urls.split('\n')
+            rm, total, up = len(urlx), len(urlx), 0
+            await pablo.edit_text(f"Total: {total}\nDownloaded: {up}\nDownloading: {rm}")
+            for url in urlx:
+                download_file(url, dirs)
+                up+=1
+                rm-=1
+                try:
+                    await pablo.edit_text(f"Total: {total}\nDownloaded: {up}\nDownloading: {rm}")
+                except BadRequest:
+                    pass
+        os.remove(fl)    
     elif update.text:
         output_filename = str(update.from_user.id)
         filename = f'./{output_filename}.zip'
@@ -374,7 +393,7 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
         for video in dldirs:
             start_time = time.time()
-            await send.reply_video(
+            await update.reply_video(
                 video,
                 supports_streaming=True,
                 caption= 'Upload by @ccgnimex_bot',
