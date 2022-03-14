@@ -5,6 +5,7 @@ from urllib.error import HTTPError
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors import BadRequest
+from ff import ffprobe
 
 # Configs
 API_HASH = os.environ['API_HASH'] # Api hash
@@ -352,12 +353,16 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
             start_time = time.time()
             await update.reply_video(
                 files,
+                height=height,
+                width=width,
+                duration=duration,
                 progress=progress_for_pyrogram,
                 progress_args=(
                     'Uploading...',
                     pablo,
                     start_time
                 )
+                
             )
             up+=1
             rm-=1
