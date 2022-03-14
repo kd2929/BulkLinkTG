@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 import os, time, math, shutil, pyromod.listen
 from urllib.parse import unquote
 from pySmartDL import SmartDL
@@ -372,7 +373,7 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         dldirs = [i async for i in absolute_paths(dirs)]
         rm, total, up = len(dldirs), len(dldirs), 0
         await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
-        for document in dldirs:
+        for video in dldirs:
             start_time = time.time()
             await update.reply_video(
                 video,
@@ -380,6 +381,7 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
                 caption= 'Upload by @ccgnimex_bot',
                 height= 720,
                 width= 1280, 
+                duration= NULL,
                 progress=progress_for_pyrogram,
                 progress_args=(
                     'Uploading...',
