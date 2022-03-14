@@ -27,6 +27,7 @@ CB_BUTTONS=[
     [
         InlineKeyboardButton("Zip", callback_data="zip"),
         InlineKeyboardButton("One by one", callback_data="1by1"),
+        InlineKeyboardButton("Video", callback_data="video"),
     ]
 ]
 
@@ -349,7 +350,7 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
         for files in dldirs:
             start_time = time.time()
-            await update.reply_video(
+            await update.reply_document(
                 files,
                 progress=progress_for_pyrogram,
                 progress_args=(
@@ -367,6 +368,30 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
             time.sleep(1)
         await pablo.delete()
         shutil.rmtree(dirs)
+    elif cb_data == 'video':
+        dldirs = [i async for i in absolute_paths(dirs)]
+        rm, total, up = len(dldirs), len(dldirs), 0
+        await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
+        for files in dldirs:
+            start_time = time.time()
+            await update.reply_video(
+                files,
+                progress=progress_for_pyrogram,
+                progress_args=(
+                    'Uploading...',
+                    pablo,
+                    start_time
+                )
+            )
+            up+=1
+            rm-=1
+            try:
+                await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
+            except BadRequest:
+                pass
+            time.sleep(1)
+        await pablo.delete()
+        shutil.rmtree(dirs)    
 
 
 
