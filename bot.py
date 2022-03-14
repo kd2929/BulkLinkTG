@@ -381,11 +381,7 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
                     'Uploading...',
                     pablo,
                     start_time
-                ),
-                height=height,
-                width=width,
-                duration=duration,
-                supports_streaming=True,
+                )
             )
             up+=1
             rm-=1
