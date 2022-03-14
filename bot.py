@@ -372,10 +372,10 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         dldirs = [i async for i in absolute_paths(dirs)]
         rm, total, up = len(dldirs), len(dldirs), 0
         await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
-        for files in dldirs:
+        for video in dldirs:
             start_time = time.time()
             await update.reply_video(
-                files,
+                video,
                 progress=progress_for_pyrogram,
                 progress_args=(
                     'Uploading...',
