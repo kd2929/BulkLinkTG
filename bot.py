@@ -380,7 +380,7 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         for video in dldirs:
             start_time = time.time()
             await update.reply_video(
-                video=open('output.mp4', 'rb'),
+                video,
                 supports_streaming=True,
                 caption= 'Upload by @ccgnimex_bot',
                 height= 720,
