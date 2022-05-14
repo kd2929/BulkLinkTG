@@ -1,31 +1,26 @@
 {
   "name": "BulkLoader",
   "description": "Telegram Bot to Download list of urls and Upload to Telegram.",
-  "keywords": [
-    "telegram",
-    "best",
-    "bulk",
-    "downloader"
-  ],
+  "keywords": ["telegram", "best", "bulk", "downloader"],
   "success_url": "https://github.com/X-Gorn/BulkLoader",
   "website": "https://github.com/X-Gorn",
   "repository": "https://github.com/X-Gorn/BulkLoader",
   "env": {
     "BOT_TOKEN": {
       "description": "Your bot token, as a string.",
-      "value": ""
+      "value": "1978242690:AAHi2cNEzUjz6qc-ofOW-XSHQ9fTqjBUtrc"
     },
     "APP_ID": {
       "description": "Get this value from https://my.telegram.org",
-      "value": ""
+      "value": "7120601"
     },
     "API_HASH": {
       "description": "Get this value from https://my.telegram.org",
-      "value": ""
+      "value": "aebd45c2c14b36c2c91dec3cf5e8ee9a"
     },
     "OWNER_ID": {
       "description": "Your telegram id, not username. Open https://t.me/MissRose_bot and send /id to bot. Left empty if you want bot public",
-      "value": "",
+      "value": "784985038",
       "required": false
     },
     "AS_ZIP": {
@@ -37,11 +32,12 @@
       "value": "False"
     }
   },
-  "addons": [
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
   ],
-  "buildpacks": [{
-    "url": "heroku/python"
-  }],
   "stack": "heroku-20",
   "formation": {
     "worker": {
