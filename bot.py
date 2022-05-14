@@ -369,15 +369,17 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         await pablo.delete()
         shutil.rmtree(dirs)
     elif cb_data == 'video':
+        output_filename = str(update.from_user.id)
         dldirs = [i async for i in absolute_paths(dirs)]
         rm, total, up = len(dldirs), len(dldirs), 0
         await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
         for video in dldirs:
             start_time = time.time()
-            await update.reply_video(
+            await update.send_video(
                 video,
                 supports_streaming=True,
-                caption= 'Upload by @ccgnimex_bot',
+                duration=True,
+                caption= '{output_filename} Upload by @ccgnimex_bot',
                 height= 720,
                 width= 1280, 
                 progress=progress_for_pyrogram,
