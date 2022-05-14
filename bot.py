@@ -379,6 +379,7 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
         for video in dldirs:
             start_time = time.time()
+            video=open('output.mp4', 'rb'),
             await update.reply_video(
                 video,
                 supports_streaming=True,
