@@ -1,4 +1,9 @@
 import os, time, math, shutil, pyromod.listen
+import socket
+try:
+    ...
+except socket.timeout:
+    ...
 from urllib.parse import unquote
 from pySmartDL import SmartDL
 from urllib.error import HTTPError
