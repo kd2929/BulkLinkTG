@@ -1,4 +1,5 @@
 import os, time, math, shutil, pyromod.listen
+
 import socket
 try:
     ...
@@ -6,6 +7,7 @@ except socket.timeout:
     ...
 from urllib.parse import unquote
 from pySmartDL import SmartDL
+from requests.exceptions import ReadTimeout
 from urllib.error import HTTPError
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
