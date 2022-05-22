@@ -26,14 +26,6 @@ OWNER_ID = '784985038'
 #BUTTONS = bool(os.environ['BUTTONS']) # Upload mode. If True: will send buttons (Zip or One by One) instead of AZ_ZIP | If False: will do as you've fill on AZ_ZIP
 
 # Buttons
-START_BUTTONS=[
-    [
-        InlineKeyboardButton("Source", url="https://github.com/X-Gorn/BulkLoader"),
-        InlineKeyboardButton("Project Channel", url="https://t.me/xTeamBots"),
-    ],
-    [InlineKeyboardButton("Author", url="https://t.me/xgorn")],
-]
-
 CB_BUTTONS=[
     [
         InlineKeyboardButton("Zip", callback_data="zip"),
