@@ -376,12 +376,13 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
         await pablo.edit_text(f"Total: {total}\nUploaded: {up}\nUploading: {rm}")
         for video in dldirs:
             start_time = time.time()
-            await update.reply_video(
+            await update.send_video(
                 video,
+                duration=duration,
+                width=width,
+                height=height,
+                thumb=thumb, 
                 supports_streaming=True,
-                caption= 'Upload by @ccgnimex_bot',
-                height= 720,
-                width= 1280, 
                 progress=progress_for_pyrogram,
                 progress_args=(
                     'Uploading...',
