@@ -378,7 +378,6 @@ async def callbacks(bot: Client, updatex: CallbackQuery):
             start_time = time.time()
             await update.reply_video(
                 video,
-                duration=duration,
                 width=width,
                 height=height,
                 thumb=thumb, 
