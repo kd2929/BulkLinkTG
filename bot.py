@@ -12,10 +12,10 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors import BadRequest
 
-API_HASH = 'aebd45c2c14b36c2c91dec3cf5e8ee9a'
-APP_ID = '7120601'
-BOT_TOKEN = '1978242690:AAHi2cNEzUjz6qc-ofOW-XSHQ9fTqjBUtrc'
-OWNER_ID = '784985038'
+API_HASH = '80fd047285f4e94ca80311928b6bb5da'
+APP_ID = '10577960'
+BOT_TOKEN = '5935827641:AAH176ouSQfj97h4yryk8myQCHQj2Q7s9To'
+OWNER_ID = '5593532344'
 # Configs
 #API_HASH = os.environ['API_HASH'] # Api hash
 #APP_ID = int(os.environ['APP_ID']) # Api id/App id
